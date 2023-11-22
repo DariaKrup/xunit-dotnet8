@@ -1,0 +1,1 @@
+# xunit_core_adapter
