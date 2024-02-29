@@ -2,6 +2,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.parallelTests
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.buildFeatures.vcsLabeling
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetTest
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -66,6 +67,9 @@ object Build : BuildType({
         }
         parallelTests {
             numberOfBatches = 4
+        }
+        vcsLabeling {
+            vcsRootId = "${DslContext.settingsRoot.id}"
         }
     }
 })
