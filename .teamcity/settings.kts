@@ -4,6 +4,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.parallelTests
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildFeatures.vcsLabeling
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetTest
+import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -34,6 +35,18 @@ version = "2023.11"
 project {
 
     buildType(Build)
+
+    features {
+        hashiCorpVaultConnection {
+            id = "PROJECT_EXT_4"
+            name = "HashiCorp Vault"
+            url = "https://vault.burnasheva.click:8200"
+            authMethod = appRole {
+                roleId = "e0d9ef3e-a837-c70c-ea96-46e9870e6567"
+                secretId = "credentialsJSON:17e0c11e-96dc-48da-b1fd-ed4b2f848018"
+            }
+        }
+    }
 }
 
 object Build : BuildType({
