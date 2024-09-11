@@ -72,4 +72,11 @@ object Build : BuildType({
         perfmon {
         }
     }
+
+    dependencies {
+        artifacts(AbsoluteId("JavaMavenDemoDslKeys_Build")) {
+            buildRule = lastSuccessful()
+            artifactRules = "*.*"
+        }
+    }
 })
