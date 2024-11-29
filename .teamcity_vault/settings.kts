@@ -35,13 +35,12 @@ project {
     features {
         hashiCorpVaultConnection {
             id = "hashicorpVaultConnection1"
-            name = "HashiCorp Vault (Local)"
+            name = "HashiCorp Vault (Local, false)"
             url = "https://localhost:8200"
             authMethod = appRole {
                 roleId = "e0d9ef3e-a837-c70c-ea96-46e9870e6567"
                 secretId = "credentialsJSON:48cd3827-a9c5-420c-ab72-3957ed2da18a"
             }
-            failOnError = false
         }
     }
 }
