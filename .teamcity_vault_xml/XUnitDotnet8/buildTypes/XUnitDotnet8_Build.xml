@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>Build</name>
+  <description />
+  <settings>
+    <parameters>
+      <param name="docker_pass" value="%vault:passwords_storage_v1/docker!/password%" />
+    </parameters>
+    <build-runners>
+      <runner id="dotnet" name="" type="dotnet">
+        <parameters>
+          <param name="command" value="test" />
+          <param name="dotNetCoverage.dotCover.home.path" value="%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%" />
+          <param name="paths" value="PrimeService.Tests/PrimeService.Tests.csproj" />
+          <param name="plugin.docker.imageId" value="mcr.microsoft.com/dotnet/sdk:8.0" />
+          <param name="required.sdk" value="8" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="XUnitDotnet8_HttpsGithubComDariaKrupXunitDotnet8gitRefsHeadsMain" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers>
+      <build-trigger id="TRIGGER_1" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="enableQueueOptimization" value="true" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="BUILD_EXT_1" type="perfmon">
+        <parameters>
+          <param name="teamcity.perfmon.feature.enabled" value="true" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+

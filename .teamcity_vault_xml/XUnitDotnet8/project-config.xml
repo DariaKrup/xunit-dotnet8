@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>XUnit Dotnet8</name>
+  <parameters />
+  <project-extensions>
+    <extension id="PROJECT_EXT_1" type="versionedSettings">
+      <parameters>
+        <param name="buildSettings" value="ALWAYS_USE_CURRENT" />
+        <param name="credentialsStorageType" value="credentialsJSON" />
+        <param name="enabled" value="true" />
+        <param name="ignoreChangesInDependenciesAndVcsSettings" value="false" />
+        <param name="rootId" value="XUnitDotnet8_HttpsGithubComDariaKrupXunitDotnet8gitRefsHeadsMain" />
+        <param name="settingsPath" value=".teamcity_vault_xml" />
+        <param name="showChanges" value="false" />
+      </parameters>
+    </extension>
+    <extension id="hashicorpVaultConnection1" type="OAuthProvider">
+      <parameters>
+        <param name="auth-method" value="approle" />
+        <param name="displayName" value="HashiCorp Vault (Local, false)" />
+        <param name="endpoint" value="approle" />
+        <param name="gcp-endpoint-path" value="gcp" />
+        <param name="providerType" value="teamcity-vault" />
+        <param name="role-id" value="e0d9ef3e-a837-c70c-ea96-46e9870e6567" />
+        <param name="secure:secret-id" value="credentialsJSON:48cd3827-a9c5-420c-ab72-3957ed2da18a" />
+        <param name="teamcity.vault.requirement" value="%teamcity.vault.supported%" />
+        <param name="url" value="https://localhost:8200" />
+        <param name="vault-namespace" value="" />
+      </parameters>
+    </extension>
+  </project-extensions>
+  <cleanup />
+</project>
+
