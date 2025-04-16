@@ -47,7 +47,6 @@ project {
 
 object Build : BuildType({
     name = "Build"
-    paused = true
 
     params {
         param("docker_pass", "%vault:passwords_storage_v1/docker!/password%")
